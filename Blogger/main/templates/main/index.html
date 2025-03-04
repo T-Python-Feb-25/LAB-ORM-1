@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+<!-- Title -->
+{% block title %}Home{% endblock %}
+
+<!-- Content -->
+{% block content %}
+
+{% for post in posts %}
+  <h2>{{post.title}}</h2>
+  <p>{{post.content}}</p>
+  <p>{{post.is_published}}</p>
+  <p>{{post.published_at}}</p>
+{% endfor %}
+
+{% endblock %}
