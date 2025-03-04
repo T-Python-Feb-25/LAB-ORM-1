@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block background_image %}{% static 'blog/images/add-post-bg.jpg' %}{% endblock %}
+
+{% block content %}
+<h1>Add New Post</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Publish</button>
+</form>
+{% endblock %}
