@@ -2,7 +2,7 @@
 {%block title%}Post {%endblock%}
 {% block content %}
 <section class="post_input">
-    <form class="form_input" action="{%url 'main:post_view'%}" method="post"> 
+    <form class="form_input" action="{%url 'main:post_view'%}" method="post" enctype="multipart/form-data"> 
         {% csrf_token %}
         <h2>* Title</h2>
         <input type="text" name="title" placeholder="title" aria-label="title" aria-describedby="basic-addon1" required>
@@ -15,7 +15,10 @@
         <label><input type="radio" name="is_published" value="" /> None</label>
         <h2>  published at</h2>
         <input type="datetime-local" id="published_at" name="published_at">
+        <input type="file" id="poster" name="poster">
+
         <button>post</button>
+        
 
 
 

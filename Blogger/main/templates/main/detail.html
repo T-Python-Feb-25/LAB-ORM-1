@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{%block title%}detail {%endblock%}
+{% block content %}
+<main class="detail_home">
+    <div class="detail_card">
+        <h3>{{post.title}}</h3>
+        <img src="{{post.poster.url}}" alt="" ">
+        <p>{{post.content}}</p>
+        <div class="btn">
+        <a href="{%url 'main:update_view' post.id%}"><button>update</button></a>
+        <a href="{%url 'main:delate_view' post.id%}"><button>delate</button></a>
+    </div>
+        <div class="detail_bottom">
+            <h6>{{post.is_published}}</h6>
+            <h6>{{post.published_at}}</h6>
+        </div>
+    </div>
+
+</main>
+{% endblock %}
