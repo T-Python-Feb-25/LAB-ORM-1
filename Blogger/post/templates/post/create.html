@@ -1,0 +1,31 @@
+{% extends 'main/base.html'%}
+{% block content%}
+
+{% if messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+
+
+<div class="row">
+
+  <div class="col-6" >
+    <form class="d-flex flex-column gap-2" action="{% url 'post:create_view' %}" method="post">
+      
+    {% csrf_token %}
+      <input type="text" placeholder="Title" name="title" class="form-control" required />
+      <textarea placeholder="Content" name="content" class="form-control" required></textarea>
+      <input type="text" placeholder="Is Published (True/False)" name="is_published" class="form-control" required />
+
+      <input type="date" placeholder="Published At (YYYY-MM-DD)" name="published_at" class="form-control" required />
+    
+      <input type="submit" value="Create Post" class="btn btn-primary" />
+    </form>
+  </div>
+</div>
+
+{% endblock%}
