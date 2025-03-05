@@ -1,0 +1,32 @@
+{% extends 'main/base.html'%}
+{% block content%}
+
+
+
+<div class="row">
+
+  <div class="col-6" >
+    <form class="d-flex flex-column gap-2" action="{% url 'post:post_update_view' post.id %}" method="post" enctype="multipart/form-data">
+      
+    {% csrf_token %}
+      <input type="text" placeholder="Title" name="title" class="form-control" required value="{{post.title}}"/>
+      <textarea placeholder="Content" name="content" class="form-control" required>{{post.content}}</textarea>
+      <input type="text" placeholder="Is Published (True/False)" name="is_published" class="form-control" required value="{{post.is_published}}" />
+
+      <input type="date" placeholder="Published At (YYYY-MM-DD)" name="published_at" class="form-control" required value="{{post.published_at.isoformat}}"/>
+      <div class="row">
+        <div class="col-3">
+          <img src="{{post.poster.url}}" class="w-100"/>
+        </div>
+
+      <div class="col">
+        <input type="file" name="poster" class="from-control"/>
+
+      </div>
+
+      <input type="submit" value="Create Post" class="btn btn-primary" />
+    </form>
+  </div>
+</div>
+
+{% endblock%}
