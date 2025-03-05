@@ -1,0 +1,34 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home Page </title>
+    <link rel="stylesheet" href= {%static 'CSS/style.css'%}>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="first_nav">
+            
+            <strong> HOME </strong>
+            <div class="right">
+                
+                <a href=""> Home</a>
+                <a href=""> About </a>
+                <a href=""> contact </a>
+            </div>
+            <div class="signup"> 
+                <a href=""> sign up </a>
+            </div>
+        </nav> 
+        <main>
+            {% block content %}
+            
+            {% endblock  %}
+        </main>
+
+    </div>
+</body>
+</html>
