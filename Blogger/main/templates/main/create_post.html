@@ -5,16 +5,21 @@
 
 <!-- Content -->
 {% block content %}
-<form action="{% url 'main:create' %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="title" placeholder="Title">
-  <textarea name="content" placeholder="Content"></textarea>
-  <select name="is_published">
-    <option>Choose</option>
-    <option value="True">Yes</option>
-    <option value="False">No</option>
-  </select>
-  <input type="date" name="published_at">
-  <input type="submit"  value="Create">
-</form>
+<div class="container">
+  <h1>Create Post</h1>
+  <form action="{% url 'main:create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" required placeholder="Title">
+    <textarea required name="content" placeholder="Content"></textarea>
+    <label>Is Published</label>
+    <select name="is_published">
+      <option value="">Choose</option>
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+    </select>
+    <label>Published Date</label>
+    <input type="date" name="published_at">
+    <input type="submit"  value="Create">
+  </form>
+</div>
 {% endblock %}

@@ -6,11 +6,30 @@
 <!-- Content -->
 {% block content %}
 
-{% for post in posts %}
+<!-- {% for post in posts %}
   <h2>{{post.title}}</h2>
   <p>{{post.content}}</p>
   <p>{{post.is_published}}</p>
   <p>{{post.published_at}}</p>
-{% endfor %}
+{% endfor %} -->
+<section class="posts-sec">
+  <div class="container">
+    <h1>Posts</h1>
+    <div class="grid">
+      {% for post in posts %}
+      <div class="box">
+        <div class="info">
+          <h3>{{post.title}}</h3>
+          <p>{{post.content}}</p>
+          <span>Published: {{post.is_published}}</span>
+          <span>published At: {{post.published_at}}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
 
 {% endblock %}
