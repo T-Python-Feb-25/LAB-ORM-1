@@ -1,0 +1,43 @@
+<!-- unpublished_blogs.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}Archive{% endblock %}
+
+{% block content %}
+<style>
+.publish-button{
+    background-color: #0077b6; /* Blue color for the button */
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 5px 10px;  /* Increase padding to make the button bigger */
+    font-size: 0.8rem;    /* Slightly larger font */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    border-color: aliceblue;
+}
+</style>
+    <section class="posts">
+        {% if posts %}
+            <ul>
+                {% for post in posts %}
+                    <li class="post">
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.content|truncatewords:50 }}</p>
+                        <p><strong>Created at:</strong> {{ post.published_at }}</p>
+                        <p><strong>Status:</strong> Unpublished</p>
+                        <!-- Publish Button -->
+                        <form action="{% url 'publish_post' post.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="publish-button">Publish</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No unpublished blogs found.</p>
+        {% endif %}
+    </section>
+{% endblock %}

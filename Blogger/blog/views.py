@@ -31,3 +31,25 @@ def delete_post(request, post_id):
         messages.success(request, 'The post has been deleted successfully.')
     # Redirect to the homepage after deletion
     return redirect('home')
+
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'blog/post_detail.html', {'post': post})
+
+def unpublished_blogs(request):
+    unpublished_posts = Post.objects.filter(is_published=False)
+    return render(request, 'blog/unpublished_blogs.html', {'posts': unpublished_posts})
+
+def publish_post(request, post_id):
+    # Get the post by ID
+    post = Post.objects.get(id=post_id)
+
+    # Set is_published to True
+    post.is_published = True
+    post.save()
+
+    # Add a success message to be shown to the user
+    messages.success(request, 'Blog has been published successfully!')
+
+    # Redirect to the unpublished blogs page after publishing
+    return redirect('unpublished_blogs')  # This will redirect to the correct URL pattern for unpublished blogs

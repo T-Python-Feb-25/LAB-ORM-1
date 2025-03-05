@@ -3,10 +3,41 @@
 {% block title %}Add New Post - Blogger{% endblock %}
 
 {% block content %}
-    <h2>Add New Post</h2>
+<style>
+    /* Style the form labels */
+    label {
+    font-size: 1rem;          /* Larger text for better readability */
+    font-weight: bold;          /* Make the text bold */
+    color: #333;                /* Dark gray color */
+    margin-bottom: 5px;         /* Space below the label */
+    display: block;             /* Make the label a block-level element */
+    }
+
+    /* Style for the "Submit" button */
+    .submit {
+        background-color: #0077b6; /* Blue color for the button */
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        padding: 5px 10px;  /* Increase padding to make the button bigger */
+        font-size: 0.8rem;    /* Slightly larger font */
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+        border-color: aliceblue;
+    }
+    
+    .submit:hover {
+        background-color: #005f73; /* Darker blue on hover */
+        color:white;
+    }
+</style>
+
+    <h2>Add New Blog</h2>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Add Post</button>
+        <button type="submit" class="submit">Add Blog</button>
     </form>
 {% endblock %}
