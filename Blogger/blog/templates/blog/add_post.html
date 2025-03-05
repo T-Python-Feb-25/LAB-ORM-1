@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% block title %}إضافة منشور - Blogger{% endblock %}
+
+{% block content %}
+<section>
+    <h2>add new puplish</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">title:</label>
+        <input type="text" id="title" name="title" required><br>
+        
+        <label for="content">content:</label>
+        <textarea id="content" name="content" rows="5" required></textarea><br>
+        
+        <label for="is_published">puplished:</label>
+        <input type="checkbox" id="is_published" name="is_published" checked><br>
+        
+        <button type="submit">submit:</button>
+    </form>
+</section>
+{% endblock %}
