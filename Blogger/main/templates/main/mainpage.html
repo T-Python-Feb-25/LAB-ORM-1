@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block extra_css %}
+    <link href="/static/css/mainpage.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+main page
+{%endblock%}
+
+{% block content%}
+<h1 class="abo">
+Blog Home
+</h1>
+<div class="container">
+
+    {% for post in posts %}
+
+    <div class="posts">
+        <a href="{% url 'main:post_detail_view' post.id %}" ><h2 class="postitle">{{ post.title }}</h2></a>
+        <br>
+      <img src="{{post.image.url}}" width="50%">
+        <br>
+   {{post.published_at}}
+    </div>
+    {% endfor%}
+
+    </div>
+{%endblock%}

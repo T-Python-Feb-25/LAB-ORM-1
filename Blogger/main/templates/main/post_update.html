@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block extra_css %}
+    <link href="/static/css/postpage.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+update post page
+{%endblock%}
+
+{% block content%}
+<h1 class="abo">
+Update Post
+</h1>
+<p class="intro-text">Updating {{post.title}}</p>
+
+
+
+    <div class="container">
+        <form class="form-input" action="{% url 'main:post_update_view' post.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <label >Title:</label>
+        <input type="text" placeholder="Title" name="title" class="form-control" value="{{post.title}}"/>
+        <label >Content:</label>
+        <textarea placeholder="Content" name="content"  class="form-control-content">{{post.content}}</textarea>
+        <label >Is it published:</label>
+
+             <select class="form-select" name="is_published" class="form-control" >
+              <option selected>is it published?</option>
+              <option value="1" {% if post.is_published == 1 %} selected {% endif %}>Yes</option>
+              <option value="2" {% if post.is_published == 2 %} selected {% endif %}>No</option>
+            </select>
+<br>
+        <label>Publish Date & Time:</label>
+
+        <input type="datetime-local" placeholder="datetime" name="published_at" class="form-control" value="{{ post.published_at|date:'Y-m-d\TH:i' }}"/>
+        <img src="{{post.image.url}}" width="50%">
+        <label>Change image:</label>
+        <input type="file" name="image"  >
+        <input type="submit"  value="update post" class="btn btn-primary"/>
+
+
+        </form>
+
+    </div>
+
+
+
+
+{%endblock%}
