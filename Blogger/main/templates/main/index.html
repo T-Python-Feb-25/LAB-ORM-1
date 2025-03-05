@@ -6,8 +6,8 @@
 <h2>Blog</h2>
 {% for blog in blogs %}
 <div class="container">
-    <h3>{{blog.title}}</h3>
-    <p>{{blog.content}}</p>
+    <img src="{{blog.image.url}}">
+    <a href="{% url 'main:view' blog.id%}"><h3>{{blog.title}}</h3></a>
     <p>{{blog.published_at}}</p>
 </div>
 {% endfor %}

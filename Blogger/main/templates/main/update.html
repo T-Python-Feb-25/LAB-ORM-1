@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title %} Update Blog{% endblock %}
+
+{% block content %}
+<h1>Update Blog</h1>
+
+<div class="row">
+
+    
+    <form class="" action="{% url 'main:update' blog.id%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="Title" name="title" class="" value="{{blog.title}}"/>
+        <textarea placeholder="Content" name="content" class="">{{blog.content}}</textarea>
+        <img src="{{blog.image.url}}">
+        <input type="file" name="image">
+        <input type="submit" value="Update Blog" class="btn" />
+
+    </form>
+
+</div>
+{% endblock %}
