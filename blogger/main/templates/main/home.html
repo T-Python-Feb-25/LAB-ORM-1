@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <h2>Latest Posts</h2>
+    <div class="posts-container">
+        {% for post in posts %}
+            <article class="post">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+                <div class="post-content">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content }}</p>
+                    <small>Published on: {{ post.published_at }}</small>
+                </div>
+            </article>
+        {% empty %}
+            <p>No published posts yet.</p>
+        {% endfor %}
+    </div>
+    <br/>
+    <br/>
+{% endblock %}
