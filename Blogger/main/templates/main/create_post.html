@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container">
   <h1>Create Post</h1>
-  <form action="{% url 'main:create' %}" method="post">
+  <form action="{% url 'main:create' %}" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <input type="text" name="title" required placeholder="Title">
     <textarea required name="content" placeholder="Content"></textarea>
@@ -19,6 +19,7 @@
     </select>
     <label>Published Date</label>
     <input type="date" name="published_at">
+    <input type="file" name="post">
     <input type="submit"  value="Create">
   </form>
 </div>

@@ -8,3 +8,4 @@ class Post(models.Model):
   content = models.TextField()
   is_published = models.BooleanField(default=True)
   published_at = models.DateField(default =timezone.now)
+  post = models.ImageField(upload_to="image/", default="image/default.png")

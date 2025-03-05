@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+<!-- Title -->
+{% block title %}Update Bolg{% endblock %}
+
+<!-- Content -->
+{% block content %}
+<div class="container">
+  <h1>Update Post</h1>
+  <form action="{% url 'main:modify' post.id %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" required placeholder="Title" value="{{post.title}}">
+    <textarea required name="content" placeholder="Content">{{post.title}}</textarea>
+    <label>Is Published</label>
+    <select name="is_published">
+      <option value="">Choose</option>
+      <option value="True" {% if post.is_published == 1 %} selected {% endif %}>Yes</option>
+      <option value="False" {% if post.is_published == 1 %} selected {% endif %}>No</option>
+    </select>
+    <label>Published Date</label>
+    <input type="date" name="published_at" value="{{post.published_at.isoformat}}">
+    <input type="file" name="post">
+    <input type="submit"  value="Modify">
+  </form>
+</div>
+{% endblock %}
