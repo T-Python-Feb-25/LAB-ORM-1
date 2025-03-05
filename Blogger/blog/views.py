@@ -13,7 +13,7 @@ def home(request):
 # View to add a new post
 def add_post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES) # Create a form instance with POST data
         if form.is_valid():
             form.save()
             return redirect('home')

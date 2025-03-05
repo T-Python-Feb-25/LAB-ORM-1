@@ -1,43 +1,102 @@
 <!-- unpublished_blogs.html -->
 {% extends 'blog/base.html' %}
 
-{% block title %}Archive{% endblock %}
+{% block title %}Blogger - Archive{% endblock %}
 
 {% block content %}
 <style>
-.publish-button{
-    background-color: #0077b6; /* Blue color for the button */
+/* Style for the "Publish" button */
+/* Style for the "Continue Reading" button and other buttons */
+.buttons {
+    background-color: #5b595f; /* Purple color for the button */
     color: white;
     text-decoration: none;
     font-weight: normal;
     display: inline-block;
     margin-bottom: 10px;
     margin-left: 10px;
-    padding: 5px 10px;  /* Increase padding to make the button bigger */
-    font-size: 0.8rem;    /* Slightly larger font */
+    padding: 10px 15px;  /* Increase padding to make the button bigger */
+    font-size: 0.9rem;    /* Slightly larger font */
     transition: background-color 0.3s ease; /* Smooth transition on hover */
-    border-color: aliceblue;
+    border-color: #6f42c1;
+    border-radius: 8px; /* Rounded corners */
+}
+.buttons {
+    background-color: #5b595f; /* Purple color for the button */
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px 15px;  /* Increase padding to make the button bigger */
+    font-size: 0.9rem;    /* Slightly larger font */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    border-color: #6f42c1;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.buttons:hover {
+    background-color: #3b3a3d; /* Darker purple on hover */
+    color: white;
+}
+
+#delete {
+    background-color: #dc3545; /* Red color for the delete button */
+    border-color: #dc3545;
+}
+
+#delete:hover {
+    background-color: #c82333; /* Darker red on hover */
+    color: white;
+}
+
+#read{
+    background-color: #5b4e96; /* Blue color for the read button */
+}
+
+#read:hover{
+    background-color: #4a3f76; /* Darker blue on hover */
+    color: white;
+}
+
+#publish{
+    background-color: #007bff; /* Blue color for the publish button */
+    border-color: #007bff;
+}
+
+#publish:hover{
+    background-color: #0056b3; /* Darker blue on hover */
+    color: white;
 }
 </style>
-    <section class="posts">
-        {% if posts %}
-            <ul>
-                {% for post in posts %}
-                    <li class="post">
-                        <h2>{{ post.title }}</h2>
-                        <p>{{ post.content|truncatewords:50 }}</p>
-                        <p><strong>Created at:</strong> {{ post.published_at }}</p>
-                        <p><strong>Status:</strong> Unpublished</p>
-                        <!-- Publish Button -->
-                        <form action="{% url 'publish_post' post.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="publish-button">Publish</button>
-                        </form>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No unpublished blogs found.</p>
-        {% endif %}
-    </section>
+    <div class="container mt-3">
+    {% if posts %}
+        {% for post in posts %}
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{ post.img.url }}" class="card-img" alt="{{ post.title }}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                            <p class="card-text"><small class="text-muted">Published at: {{ post.published_at }}</small></p>
+                            <a href="{% url 'post_detail' post.id %}" class="btn btn-primary" id="read">Read More</a>
+                            <!-- Publish Button -->
+                            <a href="{% url 'publish_post' post.id %}" class="buttons" id="publish">Publish</a>
+                            <!-- Update Button -->
+                            <a href="{% url 'update_post' post.id %}" class="buttons">Update</a>
+                            <!-- Delete link -->
+                            <a href="{% url 'delete_post' post.id %}" class="buttons" id="delete" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No unpublished blogs found.</p>
+    {% endif %}
+    </div>
 {% endblock %}
