@@ -18,7 +18,7 @@ New Blog Entry
 
 
     <div class="container">
-        <form class="form-input" action="{% url 'main:post_view' %}" method="post">
+        <form class="form-input" action="{% url 'main:post_view' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
         <label >Title:</label>
         <input type="text" placeholder="Title" name="title" class="form-control" />
@@ -36,6 +36,8 @@ New Blog Entry
 
         <input type="datetime-local" placeholder="datetime" name="published_at" class="form-control"/>
 
+        <label>Add an image:</label>
+        <input type="file" name="image"  >
         <input type="submit"  value="create post" class="btn btn-primary"/>
 
 
