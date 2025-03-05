@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+{% block extra_css %}
+    <link href="/static/css/postpage.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+post page
+{%endblock%}
+
+{% block content%}
+<h1 class="abo">
+New Blog Entry
+</h1>
+<p class="intro-text">Share your thoughts with the world! Fill in the details below to create a new post.</p>
+
+
+
+    <div class="container">
+        <form class="form-input" action="{% url 'main:post_view' %}" method="post">
+            {% csrf_token %}
+        <label >Title:</label>
+        <input type="text" placeholder="Title" name="title" class="form-control" />
+        <label >Content:</label>
+        <textarea placeholder="Content" name="content"  class="form-control-content"></textarea>
+        <label >Is it published:</label>
+
+             <select class="form-select" name="is_published" class="form-control">
+              <option selected>is it published?</option>
+              <option value="1">Yes</option>
+              <option value="2">No</option>
+            </select>
+<br>
+        <label>Publish Date & Time:</label>
+
+        <input type="datetime-local" placeholder="datetime" name="published_at" class="form-control"/>
+
+        <input type="submit"  value="create post" class="btn btn-primary"/>
+
+
+        </form>
+
+    </div>
+
+
+
+
+{%endblock%}

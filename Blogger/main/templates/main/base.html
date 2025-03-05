@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <link href="/static/css/base.css" rel="stylesheet">
+
+
+        {% block extra_css %}{% endblock %}
+    <title>{% block title %}{%endblock%}</title>
+</head>
+<body>
+<div class="header">
+
+   <a href="{% url 'main:main_view' %}" class="blogging"  style="color:black;
+    text-decoration: none; font-size: 55px; font-weight: 600 ;" >Blogging</a>
+
+
+<div class="baar">
+
+    <nav class="navbar">
+        <a href="{% url 'main:main_view' %}">Home</a>
+        <a href="{% url 'main:post_view' %}">Post </a>
+
+    </nav>
+
+
+
+    </div></div>
+
+<main class="container-wrapper">
+    {% block content%}
+
+    {% endblock %}
+</main>
+<div class="footer-line"></div>
+<footer class="footer">
+    <p>&copy; 2024 My Website | All rights reserved.</p>
+</footer>
+
+</body>
+</html>
