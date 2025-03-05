@@ -8,6 +8,7 @@ urlpatterns = [
     path('delete/<int:post_id>/', views.delete_post, name='delete_post'),  # New URL for delete
     path('unpublished/', views.unpublished_blogs, name='unpublished_blogs'), # New URL for unpublished posts/blogs
     path('publish/<int:post_id>/', views.publish_post, name='publish_post'),  # Publish blog/post
+    path('post/update/<int:post_id>/', views.update_post, name='update_post'), # Update blog/post
 ]
 
 

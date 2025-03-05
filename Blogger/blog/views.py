@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
+from .models import Post
+from .forms import PostForm  # Assuming you have a BlogPostForm for updating the post
 
 # View to display the latest posts
 def home(request):
@@ -53,3 +55,17 @@ def publish_post(request, post_id):
 
     # Redirect to the unpublished blogs page after publishing
     return redirect('unpublished_blogs')  # This will redirect to the correct URL pattern for unpublished blogs
+
+def update_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    # If the form is submitted
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', post_id=post.id)  # Redirect to the post detail page after update
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'blog/update_post.html', {'form': form, 'post': post})

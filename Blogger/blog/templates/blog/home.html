@@ -13,11 +13,11 @@
     display: inline-block;
     margin-bottom: 10px;
     margin-left: 10px;
-    padding: 5px 10px;  /* Increase padding to make the button bigger */
+    padding: 10px 9px;  /* Increase padding to make the button bigger */
     font-size: 0.8rem;    /* Slightly larger font */
     transition: background-color 0.3s ease; /* Smooth transition on hover */
     border-color: aliceblue;
-
+    /*border-radius: 16%;*/
 }
 
 .buttons:hover {
@@ -25,12 +25,19 @@
     color:white;
 }
 
+#delete{
+    background-color: rgb(182, 59, 59);
+}
+#delete:hover{
+    background-color: rgb(200, 0, 0);
+}
 
 </style>
     <h2>Latest Blogs</h2>
     <ul>
         {% for post in posts %}
             <li>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; height: 300px; object-fit: cover;">
                 <h3 style="font-weight: bold;">{{ post.title }}</h3>
                 <p>{{ post.content|truncatewords:50 }}</p>
                 <p><strong>Published at:</strong> {{ post.published_at }}</p>
@@ -38,8 +45,11 @@
                 <!-- Continue Reading Button -->
                 <a href="{% url 'post_detail' post.id %}" class="buttons">Continue Reading</a>
 
+                <!-- Update Button -->
+                <a href="{% url 'update_post' post.id %}" class="buttons" onclick="return ">Update</a>
+
                 <!-- Delete link (if you want to keep it) -->
-                <a href="{% url 'delete_post' post.id %}" class="buttons" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
+                <a href="{% url 'delete_post' post.id %}" class="buttons" id="delete" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
             </li>
         {% endfor %}
     </ul>
