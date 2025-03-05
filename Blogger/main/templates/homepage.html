@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Blogger{% endblock %}
+
+{% block content %}
+<section class="posts">
+    <h2>Latest Posts</h2>
+    {% for post in posts %}
+    <article>
+        <img src="{{post.poster.url}}" class="w-100" alt="{{post.title}}">
+        <a href="{% url 'main:detail' post.id %}"><h3>{{ post.title }}</h3></a>
+        <small>Published: {{ post.published_at|date:"F d, Y H:i" }}</small>
+    </article>
+    {% empty %}
+    <p>No posts yet.</p>
+    {% endfor %}
+</section>
+{% endblock %}
