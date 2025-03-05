@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style>
+
+button {
+        background-color: #838384; /* Blue color for the button */
+        border-color: #838384;
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px 15px;  /* Increase padding to make the button bigger */
+    font-size: 0.9rem;    /* Slightly larger font */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    border-radius: 8px; /* Rounded corners */
+}
+
+    /* Style the form labels */
+    label {
+    font-size: 1rem;          /* Larger text for better readability */
+    font-weight: bold;          /* Make the text bold */
+    color: #333;                /* Dark gray color */
+    margin-bottom: 5px;         /* Space below the label */
+    display: block;             /* Make the label a block-level element */
+    }
+
+button:hover {
+        background-color: #333; /* Darker blue on hover */
+        color:white;
+    }
+
+</style>
+<h2>Update Blog Post</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Post</button>
+</form>
+
+<a href="{% url 'post_detail' post.id %}">Cancel</a>
+{% endblock %}
