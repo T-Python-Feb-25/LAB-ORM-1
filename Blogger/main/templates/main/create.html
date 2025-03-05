@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block title %} Create blog{% endblock %}
+
+{% block content %}
+<h1>Create Blog</h1>
+
+<div class="row">
+
+    
+    <form class="" action="{% url 'main:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="Title" name="title" class="" />
+        <textarea placeholder="Content" name="content" class=""></textarea>
+        <input type="file" name="image">
+        <input type="submit" value="Create Blog" class="btn" />
+
+    </form>
+
+</div>
+{% endblock %}

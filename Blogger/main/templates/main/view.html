@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %} blog view {% endblock %}
+
+{% block content %}
+<h2>{{blog.title}}</h2>
+<a href="{% url 'main:update' blog.id %}" class="btn">update</a>
+<a href="{% url 'main:delete' blog.id %}" class="btn-red">Delete</a>
+<div class="container">
+    <img src="{{blog.image.url}}">
+    <p>{{blog.content}}</p>
+    <p>{{blog.published_at}}</p>
+</div>
+
+
+
+
+{% endblock %}
