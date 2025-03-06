@@ -1,0 +1,46 @@
+
+.navbar{
+    background-color: rgb(26, 210, 183);
+}
+.navbar-brand h2 {
+    font-family: "Rubik Puddles";
+    font-weight: 700;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.btn-primary {
+    background-color: rgb(26, 210, 183);; 
+    border-color: rgb(26, 210, 183);; 
+}
+
+.btn-primary:hover {
+    background-color: silver; 
+    border-color: silver; 
+}
+.new-blog{
+    padding-right: 70px;
+}
+.poster {
+    height: 250px;
+    width: 450px;
+}
+.blog-title{
+    text-decoration: none;
+    color: rgb(79, 14, 91);
+}
+.published{
+    color: green;
+}
+.un-published{
+    color: rgb(128, 19, 0);
+}
+.published,.un-published{
+    font-size: 30px;
+}
+p{
+    padding: 0px 15px;
+}
