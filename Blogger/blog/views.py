@@ -6,7 +6,11 @@ from django.utils import timezone
 from django.http import HttpRequest, HttpResponse
 
 def homepage(request):
-    posts = Post.objects.filter(is_published=True).order_by('-published_at')
+
+    #posts = Post.objects.filter(is_published=True).order_by('-published_at')
+    posts = Post.objects.all()[0:2]
+
+
     return render(request, 'blog/home.html', {'posts': posts})
 
 def add_post(request):
@@ -56,3 +60,11 @@ def delete(request:HttpRequest, blog_id:int):
     post.delete()
 
     return redirect("blog:homepage")
+
+def all_publisher(request):
+
+  
+    posts = Post.objects.all()
+
+
+    return render(request, 'blog/home.html', {'posts': posts})
