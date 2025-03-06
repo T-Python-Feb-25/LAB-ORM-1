@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+
+{% block title %}add publisher - Blogger{% endblock %}
+
+{% block content %}
+<section>
+    <h2>update {{post.title}}</h2>
+        
+        <form  method="post" enctype="multipart/form-data">
+        <form class="d-flex flex-column gap-2" action="{% url 'blog:update' post.id %}" method="post" enctype="multipart/form-data">
+
+
+
+        {% csrf_token %}
+        <label for="title">title:</label>
+        <input type="text" id="title" name="title" required value={{post.title}}><br>
+        
+        <label for="content">content:</label>
+        <textarea id="content" name="content" rows="5" required >{{post.content}}</textarea><br>
+        
+        <label for="is_published">puplished:</label>
+        <input type="checkbox" id="is_published" name="is_published" checked vlaue={{post.is_publisherd}}><br>
+
+
+        <div class="row">
+            <div class="col-3">
+                <img src="{{post.poster.url}}" class="w-100" />
+            </div>
+            <div class="col">
+                 <input type="file" name="poster" class="form-control"/>
+                 </div>
+             </div>    
+        <button type="submit">submit:</button>
+    </form>
+</section>
+{% endblock %}
