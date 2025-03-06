@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,6 +8,7 @@ body {
     line-height: 1.6;
 }
 
+/* Header Styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -23,10 +25,6 @@ header {
     font-size: 24px;
     font-weight: bold;
 }
-.logo a:hover{
-    color: #1abc9c;
-    font-size: 1.5rem;
-}
 
 .nav-links {
     display: flex;
@@ -42,14 +40,13 @@ header {
 
 .nav-links a:hover {
     color: #1abc9c;
-    font-size: 1.5rem;
 }
 
 .add-post .btn-add-post {
     background-color: #1abc9c;
     color: #fff;
     padding: 8px 16px;
-    border-radius: 70%;
+    border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -57,13 +54,25 @@ header {
 
 .add-post .btn-add-post:hover {
     background-color: #16a085;
-    font-size: 1.5rem;
 }
 
+/* Main Content Styles */
 main {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+/* Homepage Styles */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .post {
@@ -71,7 +80,6 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -81,7 +89,7 @@ main {
 }
 
 .post-image {
-    max-width: 100%;
+    max-width: 200px;
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -105,7 +113,8 @@ main {
     font-size: 14px;
 }
 
-.post-form {
+/* Form Styles */
+.post-form, .contact-form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -126,6 +135,7 @@ main {
 }
 
 .form-group input[type="text"],
+.form-group input[type="email"],
 .form-group textarea,
 .form-group input[type="file"] {
     width: 100%;
@@ -142,24 +152,109 @@ main {
 }
 
 .form-actions {
+    margin-top: 20px;
     text-align: right;
 }
 
-.btn-publish {
-    background-color: #1abc9c;
-    color: #fff;
-    border: none;
+.btn-publish, .btn-update, .btn-delete, .btn-cancel, .btn-submit {
+    display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
+    text-decoration: none;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
 }
 
-.btn-publish:hover {
+.btn-publish, .btn-update, .btn-submit {
+    background-color: #1abc9c;
+    color: #fff;
+}
+
+.btn-publish:hover, .btn-update:hover, .btn-submit:hover {
     background-color: #16a085;
 }
 
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.btn-cancel {
+    background-color: #95a5a6;
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d;
+}
+
+/* Contact Page Styles */
+.contact-container {
+    background-image: url('../images/contact-bg.jpg');  /* Path to your image */
+    background-size: cover;  /* Cover the entire container */
+    background-position: center;  /* Center the image */
+    background-repeat: no-repeat;  /* Prevent repeating */
+    background-color: #2c3e50;  /* Fallback color */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: center;
+}
+
+.contact-container h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #fff;
+}
+
+.contact-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Footer Styles */
 footer {
     text-align: center;
     padding: 15px;
