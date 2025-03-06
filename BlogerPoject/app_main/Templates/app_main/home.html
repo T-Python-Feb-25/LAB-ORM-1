@@ -1,0 +1,41 @@
+{% extends 'app_main/base.html' %}
+{% block title %}index{% endblock %}
+
+{% block content %}
+
+
+<div>
+
+    <hr />
+    <h2>OUR BLOOGS</h2>
+    {% for Post in Posts %}
+      <div>
+        <div>
+            <h3>{{Post.title}}</h3>
+            <p>{{Post.content}}</p>
+            <h5>{{Post.is_published}}</h5>
+            <h6>{{Post.published_at}}</h6>
+        </div>
+      </div>
+    {% endfor %}
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
