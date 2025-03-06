@@ -13,7 +13,7 @@
                 <div class="d-flex justify-content-between">
               <p><small> puplished in {{ post.published_at }}</small></p>
                 
-            <img src="{{ post.poster.url }}" class="w-50" />
+            <img src="{{ post.poster.url }}" class="w-25" />
             <div class="d-flex justify-content-end gap-2">
                 <a href="{% url 'blog:update' post.id %}" class="btn btn-primary">update</a>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</button>
