@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+<div class="col-6"> 
+    <form class="d-flex flex-column gap-2" action="{%url 'main:Creat_post_view'%}" method="POST">
+        {%csrf_token%}
+        
+        <label for="title">Title:</label>
+        <input type="text"  name="title" class="from-control" placeholder="title..." required><br><br>
+    
+        
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" class="from-control" placeholder="content..." required></textarea><br><br>
+    
+        
+        <label for="is_published">Is Published:</label>
+        <input type="checkbox" id="is_published" name="is_published" checked value="True"><br><br>
+    
+        
+        <label for="published_at">Published At:</label>
+        <input type="datetime-local" name="published_at" class="from-control" value="2025-03-05T00:00"><br><br>
+    
+        <input type="submit" class="btn" value="Submit">
+    </form>
+
+</div>
+{% endblock  %}

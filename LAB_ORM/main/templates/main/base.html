@@ -15,17 +15,15 @@
             <strong> HOME </strong>
             <div class="right">
                 
-                <a href=""> Home</a>
-                <a href=""> About </a>
-                <a href=""> contact </a>
+                <a href="/"> Home</a>
+                <a href="{% url 'main:Creat_post_view' %}"> creat post </a>
             </div>
             <div class="signup"> 
                 <a href=""> sign up </a>
             </div>
         </nav> 
         <main>
-            {% block content %}
-            
+            {% block content %}           
             {% endblock  %}
         </main>
 

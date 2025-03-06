@@ -86,7 +86,7 @@ a{
     color: black;
 }
 
-button {
+.btn {
     background-color: black;
     color: white;
     border-radius: 2rem;
@@ -95,4 +95,5 @@ button {
     justify-content: left;
     width: 10rem;
 }
+
 
