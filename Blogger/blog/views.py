@@ -49,3 +49,10 @@ def update(request:HttpRequest, blog_id:int):
 
     
     return render(request, 'blog/update.html', {"post" : post})
+
+def delete(request:HttpRequest, blog_id:int):
+
+    post = Post.objects.get(pk=blog_id)
+    post.delete()
+
+    return redirect("blog:homepage")
