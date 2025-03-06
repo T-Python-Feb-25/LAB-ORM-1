@@ -6,7 +6,7 @@ from .models import Post
 
 # Home Page
 def home_view(request:HttpRequest):
-  posts = Post.objects.all()
+  posts = Post.objects.filter(is_published__contains = 1).exclude(title = "Github")[0:2]
   return render(request, "main/index.html", {"posts":posts})
 
 # Create page
