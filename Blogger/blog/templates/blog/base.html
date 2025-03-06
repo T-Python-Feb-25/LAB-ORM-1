@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+</head>
+<body class="{% if request.COOKIES.mode == 'dark' %}dark-mode{% endif %}">
+
+    
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'img/logo.jpg' %}" alt="Logo" class="logo">
+        </div>
+    </header>
+
+    
+    <nav>
+        <a href="{% url 'home' %}"><span class="material-symbols-outlined">home</span> Home</a>
+        <a href="{% url 'new_post' %}"><span class="material-symbols-outlined">create</span> New Post</a>
+        <a href="{% url 'contact' %}"><span class="material-symbols-outlined">contact_support</span> Contact</a>
+
+        <!-- dark mode light mpde-->
+        <a href="{% url 'mode_view' 'dark' %}" class="mode-switch">
+            <span class="material-symbols-outlined">dark_mode</span>
+        </a>
+        <a href="{% url 'mode_view' 'light' %}" class="mode-switch">
+            <span class="material-symbols-outlined">light_mode</span>
+        </a>
+    </nav>
+
+    
+    <div class="welcome">
+        <h1 class="fade-in">Welcome to the Blog! 😍</h1>
+    </div>
+
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <p>Follow us on</p>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </footer>
+
+</body>
+</html>

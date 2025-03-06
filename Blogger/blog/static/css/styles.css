@@ -1,0 +1,246 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5DC;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+header {
+    background-color: #3E2723;
+    padding: 15px;
+}
+
+.logo-container {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    background: rgba(62, 39, 35, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 25px;
+    width: 80%;
+    margin: 0 auto;
+    transition: background 0.3s ease-in-out;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    color: red;
+    transform: scale(1.1);
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+}
+
+.material-symbols-outlined {
+    font-size: 22px;
+    margin-right: 5px;
+}
+
+.welcome {
+    margin-top: 20px;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post {
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post h2 {
+    font-size: 24px;
+    color: #3E2723;
+}
+
+.post p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.new-post-btn {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.new-post-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease-in-out;
+}
+
+.new-post-btn:hover::before {
+    left: 100%;
+}
+
+.new-post-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 16px rgba(255, 75, 43, 0.3);
+}
+
+.new-post-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.glow-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 20px rgba(255, 255, 255, 0.5);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    }
+    to {
+        text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+    }
+}
+
+.background {
+    background-image: url('your-image.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #3E2723;
+    color: white;
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+footer a:hover {
+    color: #FFEB3B;
+    transform: rotate(10deg);
+}
+
+form {
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #3E2723;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    resize: none;
+}
+
+form textarea {
+    height: 120px;
+}
+
+form input[type="file"] {
+    background: white;
+    padding: 6px;
+    border: 1px solid #ccc;
+}
+
+form .button-container {
+    text-align: center;
+}
