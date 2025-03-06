@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home</title>
+    </head>
+    <body>
+        <h1>our posts</h1>
+        <div class="row mt-5">
+            {% for post in posts %}
+                <div class="col">
+                    <div class="d-flex flex-column justify-content-center alin-items-center h-100 p-4">
+                       <h3>{{post.title}}</h3>
+                       <p>{{post.content}}</p>
+                       <p>did it got published {{post.is_published}}</p>
+                       <p>when did it got published {{post.published_at}}</p>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+       </div>
+
+    </body>
+
+
+
+</html>

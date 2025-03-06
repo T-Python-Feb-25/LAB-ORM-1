@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>new posts</title>
+    </head>
+    <body>
+        <h1>create a new post</h1>
+        <div class="'row">
+            
+            <div clss="col-6">
+                <form class="d-flex flex-column gap-2" action="{% url 'main:new_post' %}" method="post" >
+                    {% csrf_token %}
+                    <p>What is the title of the post </p>
+                    <input type="text" placeholder="title" name="title" class="form-control"/>
+                    <p>Add your content</p>
+                    <textarea placeholder="content"class="form-control" class="form-control"></textarea>
+                    <p>ist published  </p>
+                    <label>
+                        <input type="radio" name="is_published" value="true">YES
+                    </label>
+                    <label>
+                        <input type="radio"name="is_published" value="false"> NO
+                    </label>
+                    <p>What day do you want to publish it?</p>
+                    <input type="date" name="publish date"form-control/>
+                    <p></p>
+                    <input type="submit" value="post" class="form-control"/>
+                </form>
+            </div>
+        </div>
+
+        
+    </body>
+
+
+
+</html>
