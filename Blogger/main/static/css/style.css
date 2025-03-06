@@ -1,0 +1,137 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(235, 233, 233);
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    
+}
+.nav-left{
+    padding-left: 15px;
+    font-weight: 800;
+}
+.nav-left a{
+    font-size: 2rem;
+}
+.nav a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+}
+.nav .nav-right{
+    display: flex;
+    gap: 15px;
+}
+.nav .nav-right a button{
+    border-style: none;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+.grid{
+    margin-top: 30px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit,350px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.card_content{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    gap: 10px;
+    background-color: rgb(251, 251, 251);
+    border-radius: 10px;
+}
+.card_content img{
+   width: 350px;
+   height: 250px;
+}
+.post_input{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.form_input{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.form_input input{
+    border:1px solid rgb(196, 193, 193);
+    padding: 4px;
+
+}
+.form_input button{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+}
+.form-control{
+    border:1px solid rgb(196, 193, 193);
+
+    height: 100px;
+}
+.detail_home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4vh;
+    align-content: center;
+}
+.detail_card{
+    padding: 1vh;
+    border: solid 4px rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(255, 255, 255);
+}
+.detail_card:last-child{
+    margin-bottom: 30px;
+}
+
+
+.detail_card h3,.card_content h3{
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.detail_card .detail_bottom,.card_content .main_bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgb(101, 101, 101);
+}
+.btn{
+    display: flex;
+    justify-content: end;
+    gap: 3px;
+}
+.btn button{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+}

@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{%block title%}Home {%endblock%}
+{% block content %}
+<main class="main_home">
+    <div class="grid">
+        {%for p in post%}
+
+        <div class="card_content">
+            <a href="{%url 'main:detail_view' p.id%}">
+                <h3>{{p.title}}</h3>
+            </a>
+            <img src="{{p.poster.url}}" alt="">
+
+            <div class="main_bottom">
+                <h6>{{p.is_published}}</h6>
+                <h6>{{p.published_at}}</h6>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+</main>
+{% endblock %}
