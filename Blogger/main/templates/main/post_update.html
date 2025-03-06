@@ -26,11 +26,12 @@ Update Post
         <textarea placeholder="Content" name="content"  class="form-control-content">{{post.content}}</textarea>
         <label >Is it published:</label>
 
-             <select class="form-select" name="is_published" class="form-control" >
-              <option selected>is it published?</option>
-              <option value="1" {% if post.is_published == 1 %} selected {% endif %}>Yes</option>
-              <option value="2" {% if post.is_published == 2 %} selected {% endif %}>No</option>
+             <select class="form-select form-control" name="is_published">
+                <option selected disabled>Is it published?</option>
+                <option value="1" {% if post.is_published %} selected {% endif %}>Yes</option>
+                <option value="0" {% if not post.is_published %} selected {% endif %}>No</option>
             </select>
+
 <br>
         <label>Publish Date & Time:</label>
 
