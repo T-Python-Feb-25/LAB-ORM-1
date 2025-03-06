@@ -9,8 +9,8 @@
         {% for post in posts %}
             <div class="post">
                 <img src="{{post.poster.url}}" class="w-25" />
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.content|slice:":200" }}...</p>
+              <a href="{% url 'blog:details' post.id %}"> <h3>{{ post.title }}</h3> </a>
+               <!--- <p>{{ post.content|slice:":200" }}...</p> -->
                 <p><small> puplished in {{ post.published_at }}</small></p>
             </div>
         {% endfor %}

@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block title %}add publisher - Blogger{% endblock %}
+
+{% block content %}
+
+    <h2>{{blog.title}}</h2>
+    <div class="row">
+
+        <div class="col">
+            
+                <div class="d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between">
+              <p><small> puplished in {{ post.published_at }}</small></p>
+                
+            <img src="{{ post.poster.url }}" class="w-50" />
+            <p>{{ post.content|slice:":200" }}</p> 
+          </div>
+        </div>
+    </div>  
+
+
+{% endblock %}
