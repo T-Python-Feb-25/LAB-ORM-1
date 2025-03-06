@@ -14,6 +14,10 @@
               <p><small> puplished in {{ post.published_at }}</small></p>
                 
             <img src="{{ post.poster.url }}" class="w-50" />
+            <div class="d-flex justify-content-end gap-2">
+                <a href="{% url 'blog:update' post.id %}" class="btn btn-primary">update</a>
+                
+            </div>
             <p>{{ post.content|slice:":200" }}</p> 
           </div>
         </div>

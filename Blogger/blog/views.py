@@ -27,3 +27,25 @@ def details(request:HttpRequest, blog_id:int):
     post = Post.objects.get(pk=blog_id)
 
     return render(request, 'blog/details.html', {"post" : post})
+
+
+def update(request:HttpRequest, blog_id:int):
+
+    post = Post.objects.get(pk=blog_id)
+
+    if request.method == "POST":
+        post.title = request.POST["title"]
+        post.content = request.POST["content"]
+        post.is_published = request.POST["is_published"]
+        if "poster" in request.FILES: post.poster = request.FILES["poster"]
+
+
+
+        post.save()
+
+
+        return redirect("blog:details", blog_id=post.id)
+
+
+    
+    return render(request, 'blog/update.html', {"post" : post})
