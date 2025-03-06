@@ -5,7 +5,18 @@ from django.http import HttpRequest
 from posts.forms import PostForm  
 
 def home(request):
-    posts = Post.objects.filter(is_published=True).order_by('-published_at')
+    posts = Post.objects.filter(is_published=True)
+
+    #Filter posts by specific date
+    days_ago = timezone.now() - timezone.timedelta(days=3)
+    posts = posts.filter(published_at__gte= days_ago)
+
+    # Exclude posts
+    posts = posts.exclude(title__icontains="Benefits ")
+
+    # # Sort posts from newest to oldest
+    posts = posts.order_by('-published_at')
+
     return render(request, 'blog/home.html', {'posts': posts})
 
 def new_post(request):
@@ -52,5 +63,3 @@ def mode_view(request: HttpRequest, mode):
 
 def contact(request):
     return render(request, 'blog/contact.html')
-# Create your views here.
-
