@@ -63,8 +63,10 @@ def delete(request:HttpRequest, blog_id:int):
 
 def all_publisher(request):
 
-  
-    posts = Post.objects.all()
+   # posts = Post.objects.filter(title__contains="about")
+    posts = Post.objects.filter(is_published=True).order_by('-published_at')
 
+    #posts = Post.objects.all()
+    print(posts.count())
 
-    return render(request, 'blog/home.html', {'posts': posts})
+    return render(request, 'blog/all_publisher.html', {'posts': posts})
