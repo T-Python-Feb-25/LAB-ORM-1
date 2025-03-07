@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Create New Post{% endblock %}
+
+{% block content %}
+<h1>Post</h1>
+
+<div class="row mt-2 row-cols-1 row-cols-md-3 g-4">
+
+    {% for post in post %}
+      <div class="col">
+          
+          <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+            <img src="{{post.poster.url}}" class="w-100 poster-thumb object-fit-cover"/>
+            <a href="{% url 'post:post_detail_view' post.id %}"><h3>{{post.title}}</h3></a>
+            <h6>{{ post.is_published }}</h6>
+            <p> {{ post.published_at }}</p>
+          </div>
+      </div>
+    {% endfor %}
+  
+  
+  </div>
+
+{% endblock %}

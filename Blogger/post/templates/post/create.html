@@ -12,10 +12,14 @@
     {% csrf_token %}
       <input type="text" placeholder="Title" name="title" class="form-control" required />
       <textarea placeholder="Content" name="content" class="form-control" required></textarea>
-      <input type="text" placeholder="Is Published (True/False)" name="is_published" class="form-control" required />
+      <!--<input type="text" placeholder="Is Published (True/False)" name="is_published" class="form-control" required />-->
+      <select name="is_published" class="form-control" required>
+        <option value="True">Published</option>
+        <option value="False">Not Published</option>
+      </select>
 
       <input type="date" placeholder="Published At (YYYY-MM-DD)" name="published_at" class="form-control" required />
-      <input type="file" name="poster" class="from-control"/>
+      <input type="file" name="poster" class="from-control" required accept="image/*"/>
 
       <input type="submit" value="Create Post" class="btn btn-primary" />
     </form>
