@@ -6,5 +6,9 @@ app_name="main"
 
 
 urlpatterns=[
-    path("" ,views.home_view ,name="home_view")
+    path("" ,views.home_view ,name="home_view"),
+    path("search/", views.search_blogs_view, name="search_blogs_view"),
+    path("sort/<type>/", views.sort_blogs, name="sort_blogs"),
+
+
 ]

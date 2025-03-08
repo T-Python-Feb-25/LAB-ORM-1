@@ -3,13 +3,36 @@
 {% block title %} Blooger {% endblock %}
 
 {% block content %}
-<div class="container-fluid py-4 pr-5 bg-light">
-    <div class="new-blog d-flex flex-row justify-content-end align-items-center list-unstyled gap-2">
-            <span class="material-symbols-outlined">
-                add_circle
-            </span> 
-            <a class="nav-link" href="{%url 'blogs:create_blog_view'%}">New Blog</a>
-        </div>
+<div class="container-fluid d-flex flex-row align-items-center justify-content-between py-4 px-5 bg-light">
+
+
+    <div class=" new-blog d-flex flex-row justify-content-start align-items-center list-unstyled gap-2 w-100">
+        <a class ="filter-sort btn custom-btn d-flex justify-content-center{% if "sort" in request.COOKIES and request.COOKIES.sort == "all" %} active {% endif %}" href="{%url 'main:sort_blogs' 'all' %}">Show All</a>
+        <a class ="filter-sort btn d-flex justify-content-center{% if "sort" in request.COOKIES and request.COOKIES.sort == "dec" %} active {% endif %}" href="{%url 'main:sort_blogs' 'dec' %}"><i class="bi bi-sort-down-alt"></i></a>        
+        <a class ="filter-sort btn d-flex justify-content-center{% if "sort" in request.COOKIES and request.COOKIES.sort == "inc" %} active {% endif %}" href="{%url 'main:sort_blogs' 'inc'%}"><i class="bi bi-sort-up"></i></a>
+
+        <span class="material-symbols-outlined">
+            add_circle
+        </span> 
+        <a class="nav-link" href="{%url 'blogs:create_blog_view'%}">New Blog</a>
+    </div> 
+     <div class="col-3">
+        <form role="search" method="get" action="{% url 'main:search_blogs_view' %}">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Search" 
+                       value="{% if 'search' in request.GET %}{{ request.GET.search }}{% endif %}" 
+                       aria-label="Search" name="search">
+                <button type="submit" class="btn btn-secondary" aria-label="Search">
+                    <i class="bi bi-search"></i>
+                </button>
+                {% if 'search' in request.GET %}
+                <a href="{% url 'main:home_view' %}" class="btn btn-danger" aria-label="Clear">
+                    <i class="bi bi-x"></i>
+                </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
 </div>
 
 

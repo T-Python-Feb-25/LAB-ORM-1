@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 .navbar{
     background-color: rgb(26, 210, 183);
 }
@@ -13,9 +15,39 @@ body{
 
 
 .btn-primary {
-    background-color: rgb(26, 210, 183);; 
-    border-color: rgb(26, 210, 183);; 
+    background-color: rgb(26, 210, 183);
+    border-color: rgb(26, 210, 183);
 }
+.filter-sort {
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(65, 115, 108);
+    border-color: rgb(65, 115, 108);
+    height: 40px;
+    width: 40px;
+}
+.custom-btn{
+    width: 100px;
+}
+.filter-sort:hover {
+    border-radius: 50px;
+    background-color: rgb(132, 144, 145);
+    border-color:rgb(132, 144, 145);
+
+}
+.filter-sort.active{
+    background-color: rgb(26, 210, 183);
+    border-color: rgb(26, 210, 183);
+}
+.filter-sort a{
+    text-decoration: none;
+    height: 24px;
+}
+i{
+    color: white;
+    width: 20px;
+}
+
 
 .btn-primary:hover {
     background-color: silver; 
