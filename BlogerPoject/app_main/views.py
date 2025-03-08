@@ -1,23 +1,15 @@
-
-
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .models import Post
 
-def post_details_and_edit(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
 
-    if request.method == "POST":
-        if 'delete' in request.POST:
-            post.delete()
-            return redirect('home')
-        
-      
-        post.title = request.POST["title"]
-        post.content = request.POST["content"]
-        post.is_published = request.POST.get("is_published") == "yes"
-        if request.FILES.get("image"):
-            post.image = request.FILES["image"]
-        post.save()
-        return redirect('post_details', post_id=post.id)
+def add_post(request):
+    if request.method == 'POST':
 
-    return render(request, "app_main/post_details_edit.html", {"post": post})
+        new_post = Post(title = request.POST.get('title'), content = request.POST.get('content'), published_at = request.POST.get('published_at'), is_published = request.POST.get('is_published') == 'on',image=request.FILES["image"])
+        new_post.save()
+        return redirect('app_main:home')
+    return render(request, 'app_main/add_post.html')
+
+def home(request):
+    posts = Post.objects.filter(is_published=True).order_by('-published_at')
+    return render(request, 'app_main/home.html', {'posts': posts})

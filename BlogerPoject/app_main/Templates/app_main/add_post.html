@@ -1,0 +1,46 @@
+{% extends 'app_main/base.html' %}
+
+{% block title %}Add Post{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Add New Post</h2>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- عنوان المنشور -->
+                    <input type="text" placeholder="Title" name="title" class="form-control" required>
+
+                    <!-- محتوى المنشور -->
+                    <textarea name="content" class="form-control" placeholder="Content" required></textarea>
+
+                    <!-- تاريخ النشر -->
+                    <input type="date" name="published_at" class="form-control">
+
+                    <!-- حالة النشر -->
+                    <label>
+                        <input type="checkbox" name="is_published" class="form-check-input" checked> 
+                        Publish this post
+                    </label>
+                     <input type="file" name="image" class="form-control">
+                    <!-- زر الإرسال -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
