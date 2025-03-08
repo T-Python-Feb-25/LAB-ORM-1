@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/blog.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <title>{% block title  %} {% endblock %}</title>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h2>Blogger</h2>
-      <nav>
-        <a href="{% url 'main:Home'%}">Home</a>
-        <a href="{% url 'main:create'%}">Create</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer>
-    <p>Made With Love By Nawaf</p>
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/blog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2>Blogger</h2>
+        <nav>
+          <a href="{% url 'main:Home'%}">Home</a>
+          <a href="{% url 'main:create'%}">Create</a>
+        </nav>
+        {% block search %} {% endblock %}
+      </div>
+    </header>
+    <main>{% block content %} {% endblock %}</main>
+    <footer>
+      <p>Made With Love By Nawaf</p>
+    </footer>
+  </body>
 </html>

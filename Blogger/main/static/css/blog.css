@@ -48,6 +48,10 @@ header .container {
   justify-content: space-between;
   align-items: center;
 }
+.container h1 {
+  margin: 30px 0;
+
+}
 header .container h2 {
   padding: 10px;
   height: 72px;
@@ -64,6 +68,35 @@ header .container nav a {
   display: flex;
   align-items: center;
 }
+header .container .search input {
+  min-width: 150px;
+  border: 1px #33333375 solid;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  caret-color: #0075ff;
+  transform: skew(5deg);
+}
+@media (max-width:767px){
+  header .container {
+    flex-wrap: wrap;
+  }
+  header .container h2
+  header .container nav a {
+    height: 40px;
+  }
+  header .container h2 {
+    width: 50%;
+  }
+  header .container nav a {
+    width: 50%;
+  }
+  header .container .search {
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}
 /* main */
 main {
   min-height: calc(100vh - 72px -  50px);
@@ -76,6 +109,9 @@ main .sub-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+main .sub-head {
+  margin: 0;
 }
 main .sub-head form {
   display: flex;
@@ -119,6 +155,19 @@ main .posts-sec .grid .box .info h3 {
 }
 main .posts-sec .grid .box .info span {
   display: block;
+}
+main .posts-sec .no-result {
+  color: darkred;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 6px;
+}
+@media (max-width:767px) {
+  main .posts-sec .grid {
+    grid-template-columns: repeat(auto-fill,minmax(250px,300px));
+    place-content: center;
+
+  }
 }
 /* Form */
 .create-form {

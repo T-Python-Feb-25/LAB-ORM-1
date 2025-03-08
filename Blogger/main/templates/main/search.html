@@ -1,31 +1,22 @@
 {% extends 'main/base.html' %}
 
-<!-- Title -->
-{% block title %}Home{% endblock %}
+{% block title %}
+Search
+{% endblock %}
 
-<!-- Search  -->
 {% block search %}
 <form action="{% url 'main:search' %}" method="get" class="search">
   <input type="search" name="search">
 </form>
 {% endblock %}
 
-<!-- Content -->
 {% block content %}
 <section class="posts-sec">
   <div class="container">
     <div class="sub-head">
-      <h1>Posts</h1>
-
-      <form action="{% url 'main:Home' %}" method="get">
-        <select name="filter">
-          <option value="">Filter</option>
-          <option value="published">Published</option>
-          <option value="date">Latest</option>
-        </select>
-        <input type="submit" value="Apply">
-      </form>
+      <h1>Results</h1>
     </div>
+    {% if posts %}
     <div class="grid">
       {% for post in posts %}
       <div class="box">
@@ -38,8 +29,12 @@
       </div>
       {% endfor %}
     </div>
+    {% else %}
+    <div class="no-result">
+      There is no result for '{{request.GET.search}}'
+    </div>
+    {% endif %}
   </div>
 </section>
-
 
 {% endblock %}

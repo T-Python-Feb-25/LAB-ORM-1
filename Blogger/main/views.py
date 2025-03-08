@@ -53,3 +53,12 @@ def delete_view(request:HttpRequest, post_id):
   post = Post.objects.get(pk = post_id)
   post.delete()
   return redirect("main:Home")
+
+# Search
+def search_view(request:HttpRequest):
+  # and request.GET["search"] != ""
+  if "search" in request.GET and request.GET["search"] != "":
+    posts = Post.objects.filter(title__contains = request.GET["search"])
+    return render(request,"main/search.html", {"posts":posts})
+  else:
+    return redirect("main:Home")
