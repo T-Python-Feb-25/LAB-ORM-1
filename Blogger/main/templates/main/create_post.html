@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container">
   <h1>Create Post</h1>
-  <form action="{% url 'main:create' %}" enctype="multipart/form-data" method="post">
+  <form class="create-form" action="{% url 'main:create' %}" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <input type="text" name="title" required placeholder="Title">
     <textarea required name="content" placeholder="Content"></textarea>

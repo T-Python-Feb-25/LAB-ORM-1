@@ -71,9 +71,33 @@ main {
 section {
   margin-bottom: 30px;
 }
-main h1 {
+main .sub-head {
   margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .sub-head form {
+  display: flex;
+  gap: 10px;
+}
+main .sub-head form select {
+  border: #eee 1px solid;
+  padding: 8px 10px;
+  border-radius: 5px;
+  min-width: 100px;
+  cursor: pointer;
+  outline: none;
 } 
+main .sub-head form input {
+  padding: 8px 10px;
+  border-radius: 5px;
+  min-width: 100px;
+  background-color: #0075ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 main .posts-sec .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
@@ -93,14 +117,11 @@ main .posts-sec .grid .box .info h3 {
   color: black;
   margin-top: 10px;
 }
-main .posts-sec .grid .box .info p {
-
-}
 main .posts-sec .grid .box .info span {
   display: block;
 }
 /* Form */
-form {
+.create-form {
   display: flex;
   flex-wrap: wrap;
 }
@@ -111,9 +132,9 @@ label {
   padding: 5px;
   font-weight: bold;
 }
-form input,
-form textarea, 
-form select{
+.create-form input,
+.create-form textarea, 
+.create-form select{
   outline: none;
   border: 1px solid #eee;
   width: 100%;
@@ -121,12 +142,12 @@ form select{
   resize: none;
   margin-bottom: 10px;
 }
-form input[type="submit"] {
+.create-form input[type="submit"] {
   background-color: #0075ff;
   color: white;
   cursor: pointer;
 }
-form textarea {
+.create-form textarea {
   min-height: 150px;
 }
 /* Details */

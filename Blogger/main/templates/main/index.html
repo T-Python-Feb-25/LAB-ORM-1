@@ -13,7 +13,17 @@
 {% endfor %} -->
 <section class="posts-sec">
   <div class="container">
-    <h1>Posts</h1>
+    <div class="sub-head">
+      <h1>Posts</h1>
+      <form action="{% url 'main:Home' %}" method="get">
+        <select name="filter">
+          <option value="">Filter</option>
+          <option value="published">Published</option>
+          <option value="date">Latest</option>
+        </select>
+        <input type="submit" value="Apply">
+      </form>
+    </div>
     <div class="grid">
       {% for post in posts %}
       <div class="box">
@@ -26,7 +36,6 @@
       </div>
       {% endfor %}
     </div>
-
   </div>
 </section>
 

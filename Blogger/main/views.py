@@ -6,7 +6,12 @@ from .models import Post
 
 # Home Page
 def home_view(request:HttpRequest):
-  posts = Post.objects.filter(is_published__contains = 1).exclude(title = "Github")[0:2]
+  if "filter" in request.GET and request.GET['filter'] == 'published':
+    posts = Post.objects.filter(is_published__contains = 1)
+  elif "filter" in request.GET and request.GET['filter'] == 'date':
+    posts = Post.objects.all().order_by('-published_at')
+  else:
+    posts = Post.objects.all()
   return render(request, "main/index.html", {"posts":posts})
 
 # Create page
