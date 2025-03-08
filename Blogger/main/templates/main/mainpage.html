@@ -2,29 +2,31 @@
 
 {% block extra_css %}
     <link href="/static/css/mainpage.css" rel="stylesheet">
-
 {% endblock %}
 
 {% block title %}
-main page
-{%endblock%}
+    Blog Home
+{% endblock %}
 
-{% block content%}
-<h1 class="abo">
-Blog Home
-</h1>
-<div class="container">
+{% block content %}
+<h1 class="blog-title">Blog Home</h1>
+<div class="home-container">
 
-    {% for post in posts %}
 
-    <div class="posts">
-        <a href="{% url 'main:post_detail_view' post.id %}" ><h2 class="postitle">{{ post.title }}</h2></a>
-        <br>
-      <img src="{{post.image.url}}" width="50%">
-        <br>
-   {{post.published_at}}
+    <a href="{% url 'main:all_posts_view' %}" class="all-posts-link">
+        All Posts <span class="arrow">&#8594;</span>
+    </a>
+
+    <div class="posts-container">
+        {% for post in posts %}
+            <div class="post-card">
+                <a href="{% url 'main:post_detail_view' post.id %}" class="post-title-link">
+                    <h4 class="post-title">{{ post.title }}</h4>
+                </a>
+                <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+                <p class="post-date">Published on: {{ post.published_at }}</p>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor%}
-
-    </div>
-{%endblock%}
+</div>
+{% endblock %}

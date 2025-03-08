@@ -56,6 +56,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
 }
 
 
@@ -73,4 +74,24 @@ body {
     opacity: 0.6;
 }
 
+.search-form {
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.search-form{
+    padding: 16px 16px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    width: 400px;
+    transition: width 0.3s ease;
+}
+
+.search:focus {
+    width: 250px;
+    border-color: #a5d8f3;
+}
 

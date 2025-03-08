@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block extra_css %}
+    <link href="/static/css/all_posts.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+all posts page
+{%endblock%}
+
+{% block content%}
+{% if posts%}
+<h1 class="first-massage">
+Search Results ({{posts.count}}) <br> results for: {{request.GET.search}}</h1>
+<div>
+  <form action="{% url 'main:search_post_view' %}" method="get">
+
+
+  </form>
+
+
+</div>
+{% else %}
+<h1 class="first-massage">
+no results found for: "{{request.GET.search}}"</h1>
+{% endif %}
+<div class="containerposts">
+{% for post in posts %}
+
+    <div class="all-posts">
+        <a href="{% url 'main:post_detail_view' post.id %}" ><h4 class="postitle">{{ post.title }}</h4></a>
+        <br>
+      <img src="{{post.image.url}}" width="50%">
+        <br>
+   {{post.published_at}}
+    </div>
+    {% endfor%}
+
+    </div>
+{%endblock%}

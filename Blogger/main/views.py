@@ -1,3 +1,5 @@
+from re import search
+
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -10,7 +12,7 @@ from .models import Post
 
 def main_view(request: HttpRequest):
     #get all posts
-    posts = Post.objects.all()
+    posts = Post.objects.all()[0:2]
 
     return render(request, "main/mainpage.html", {"posts": posts})
 
@@ -46,3 +48,16 @@ def post_delete_view(request: HttpRequest, post_id: int):
     post = Post.objects.get(pk=post_id)
     post.delete()
     return redirect('main:main_view')
+
+def all_posts_view(request: HttpRequest):
+    posts = Post.objects.all().order_by('-published_at')
+
+    return render(request, "main/all_posts.html", {"posts": posts})
+
+def search_post_view(request: HttpRequest):
+
+    if 'search' in request.GET and len(request.GET['search']) >=2:
+        posts = Post.objects.filter(title__icontains=request.GET['search'])
+    else:
+        posts = []
+    return render(request, "main/search_post.html", {"posts": posts})

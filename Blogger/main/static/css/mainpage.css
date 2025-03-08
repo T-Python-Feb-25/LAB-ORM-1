@@ -1,8 +1,5 @@
 
-.abo{
-    text-align: center;
-}
-.container {
+.home-container {
     display: block;
     align-items: center;
     gap: 20px;
@@ -14,20 +11,90 @@
     flex-direction: column;
     justify-content: center;
 }
-.postitle{
+.blog-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.all-posts-link {
     text-decoration: none;
     color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 25px;
+    transition: color 0.3s ease-in-out;
 }
-.posts{
-   display: block;
-    align-items: flex-start;
+
+.all-posts-link:hover {
+    color: deeppink;
+}
+
+.arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+
+
+.post-card:hover {
+    transform: scale(1.02);
+}
+
+.post-title-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.post-title-link:hover {
+    color: blue;
+}
+
+.post-image {
+    width: 60%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.post-date {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    max-width: 900px;
-    margin: 40px auto;
+}
+
+.post-card {
+    background-color: lightgrey;
     padding: 20px;
-    background-color: #d7d7d7;
-    border-radius: 30px;
-    font-family: "Annai MN";
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: 30%;
+    min-width: 250px;
+}
 
+@media (max-width: 768px) {
+    .post-card {
+        width: 45%;
+    }
+}
 
+@media (max-width: 480px) {
+    .post-card {
+        width: 100%;
+    }
 }
