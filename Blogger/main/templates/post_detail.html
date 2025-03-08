@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{% block title %}post detail{{post.id}}{% endblock %}
+
+{%block content%}
+
+<div class="post-detail">
+    <img src="{{post.photo.url}}" class="post-photo">
+    <h1 class="post-title">{{ post.title }}</h2>
+    <p class="post-content">{{ post.content|truncatewords:30 }}</p>
+    <div class="post-date">
+        Published on: {{ post.published_at|date:"F d, Y H:i" }}
+    </div>
+    <div class="d-flex justfy-content-end gap-2">
+        <a href="{%url 'post_update_view' post.id %}" class="btn btn-primary">update</a>
+        <a href="{%url 'post_delete_view' post.id %}" class="btn btn-danger">delete</a>
+    </div>
+</div>
+
+{%endblock%}
