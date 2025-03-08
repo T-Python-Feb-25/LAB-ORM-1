@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Post all {% endblock %}
+
+{% block content %}
+
+
+
+<div class="row   row-cols-1 row-cols-md-2  hero-row">
+    <div class="col order-2 order-md-1 ">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <h1 class="text-center">For all the Post informations you need</h1>
+        </div>
+
+    </div>
+
+    <div class="col order-1 overflow-hidden hero h-100 p-0">
+      <img class="w-100 h-100 object-fit-cover" src="https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post.jpeg" /> 
+  </div>
+
+
+</div>
+
+<hr />
+<a href="{% url 'post:all_post_view' %}">
+    <div class="d-flex align-items-center justify-content-between ">
+      <h2 class="m-0 p-0">Latest Post</h2>
+      <span class="material-symbols-outlined text-fxl">arrow_forward</span>
+    </div>
+    </a>
+    
+  <div class="col">
+    <h2 class="text-center">Our Post</h2>
+
+    <div class="row mt-5 row-cols-1 row-cols-md-3  g-4">
+                {% for post in posts %}
+                <div class="col">
+                    <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">
+                        <img src="{{post.poster.url}}" class="w-100">
+                        <a href="{% url 'post:post_detail_view' post.id%}"><h3>{{ post.title }}</h3></a>
+                        <p>{{ post.content }}</p>
+                        <p>{{ post.is_published }}</p>
+                        <p>{{post.published_at }}</p>
+  
+  </div>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}
